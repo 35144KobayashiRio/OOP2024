@@ -5,10 +5,11 @@ namespace BallApp {
         //Obj ball;
         //PictureBox pb;
 
+
         //Listコレクション
-        private List<Obj>balls=new List<Obj>();    //ボールインスタンス格納用
-        private List<PictureBox> pbs=new List<PictureBox>();   //表示用
-       
+        private List<Obj> balls = new List<Obj>();    //ボールインスタンス格納用
+        private List<PictureBox> pbs = new List<PictureBox>();   //表示用
+
 
         //コンストラクタ
         public Form1() {
@@ -18,23 +19,24 @@ namespace BallApp {
 
         //フォームが最初にロードされるとき一度だけ実行される
         private void Form1_Load(object sender, EventArgs e) {
-
+            this.Text = "BallApp SoccerBall:" + SoccerBall.Count + " TennisBall:" + TennisBall.Count;
         }
 
-        
-        private void timer1_Tick(object sender, EventArgs e) {
-           
 
-            for(int i = 0; i<balls.Count; i++) {
+        private void timer1_Tick(object sender, EventArgs e) {
+
+
+            for (int i = 0; i < balls.Count; i++) {
                 balls[i].Move();
                 pbs[i].Location = new Point((int)balls[i].PosX, (int)balls[i].PosY);
 
-                }
             }
+        }
 
+        //マウスクリックイベントハンドラ
         private void Form1_MouseClick(object sender, MouseEventArgs e) {
             PictureBox pb = new PictureBox();  //画像を表示するコントロール
-            Obj ball = null ;  
+            Obj ball = null;
 
             if (e.Button == MouseButtons.Left) {
                 ball = new SoccerBall(e.X - 25, e.Y - 25);
@@ -44,16 +46,20 @@ namespace BallApp {
                 ball = new TennisBall(e.X - 12, e.Y - 12);
                 pb.Size = new Size(25, 25);
             }
-                pb.Image = ball.Image;
-                pb.Location = new Point((int)ball.PosX, (int)ball.PosY);
-                pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                pb.Parent = this;
+            pb.Image = ball.Image;
+            pb.Location = new Point((int)ball.PosX, (int)ball.PosY);
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;
+            pb.Parent = this;
 
-                timer1.Start();
+            timer1.Start();
 
             balls.Add(ball);
             pbs.Add(pb);
+            this.Text = "BallApp SoccerBall:" + SoccerBall.Count + " TennisBall:" + TennisBall.Count;
+        }
 
-            }
+        private void Form1_KeyDown(object sender, KeyEventArgs e) {
+
         }
     }
+}
