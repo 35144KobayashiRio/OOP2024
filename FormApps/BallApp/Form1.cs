@@ -39,7 +39,13 @@ namespace BallApp {
 
 
             for (int i = 0; i < balls.Count; i++) {
-                balls[i].Move(pbBar, pbs[i]);
+                if(!balls[i].Move(pbBar, pbs[i])) {
+                    //落下したボールインスタンスを削除する
+                    
+                   
+                    
+
+                }
                 pbs[i].Location = new Point((int)balls[i].PosX, (int)balls[i].PosY);
 
             }

@@ -35,6 +35,9 @@ namespace BallApp {
                 MoveY = -MoveY;
             }
 
+            if (PosY > 500) {
+                return false;
+            }
 
             PosX += MoveX;
             PosY += MoveY;
