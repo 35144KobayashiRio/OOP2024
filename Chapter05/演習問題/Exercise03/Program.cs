@@ -25,9 +25,10 @@ namespace Exercise03 {
             Exercise3_5(text);
 
             Exercise3_6(text);
+
         }
 
-        
+
 
         private static void Exercise3_1(string text) {
             var spaces = text.Count(c => c == ' ');
@@ -58,13 +59,13 @@ namespace Exercise03 {
             }
             Console.WriteLine(sb);
         }
-    }
 
-    private static void Exercise3_6(string text) {
-        var array = text.Split(new[] { ' ', ',', '-', '_' }).ToArray();
-        foreach (var word in array) {
-            Console.WriteLine(word);
-        
+        private static void Exercise3_6(string text) {
+            var array = text.Split(new[] { ' ', ',', '-', '_' }).ToArray();
+            foreach (var word in array) {
+                Console.WriteLine(word);
+
+            }
         }
     }
 }
