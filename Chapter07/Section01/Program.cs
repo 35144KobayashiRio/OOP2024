@@ -1,82 +1,90 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Section01 {
     internal class Program {
+        static private Dictionary<string, string> prefOfficeDict = new Dictionary<string, string>();
+
         static void Main(string[] args) {
 
-            var PrefOfficeDict = new Dictionary<string, string>();
-            Console.WriteLine("県庁所在地の登録");
+            String pref, prefcap;
 
-            for (int i = 0; i < 5; i++) {
+            //入力
+            Console.WriteLine("県庁所在地の登録");
+            while (true) {
                 //都道府県の入力
                 Console.Write("都道府県:");
-                string pref = Console.ReadLine();
+                pref = Console.ReadLine();
+
+                if (pref == null) {
+                    break;
+                }
 
                 //県庁所在地の入力
                 Console.Write("県庁所在地:");
-                string prefcap = Console.ReadLine();
+                prefcap = Console.ReadLine();
 
-                if (PrefOfficeDict.ContainsKey(pref)) {
+                //都道府県が登録されているか
+                if (prefOfficeDict.ContainsKey(pref)) {
                     //登録済み
                     Console.WriteLine("上書きしますか？(Y/N)");
-                    var ReWrite = Console.ReadLine();
-                    if (ReWrite == "Y") {
-                        PrefOfficeDict[pref] = prefcap;   //上書きする
+                    if (Console.ReadLine() == "N") {
+                        continue;
                     }
-                } else {
-                    //登録
-                    PrefOfficeDict.Add(pref, prefcap);
                 }
+                prefOfficeDict[pref] = prefcap;  //登録
             }
-            Console.WriteLine();  //改行
+            Console.WriteLine();//改行
 
-            Boolean endFlag = false;   
+            Boolean endFlag = false;    //終了フラグ
             while (!endFlag) {
-                Console.WriteLine("//メニュー//");
-                Console.WriteLine("1:一覧表示");
-                Console.WriteLine("2:検索");
-                Console.WriteLine("9:終了");
-                Console.WriteLine(">");
-                String menuSelect = Console.ReadLine();
-                switch (menuSelect) {
+                switch (menuDisp()) {
                     case "1":
-                        //一覧
-                        foreach (var pref in PrefOfficeDict) {
-                            Console.WriteLine("{0}の県庁所在地は{1}です。", pref.Key, pref.Value);
-                        }
-
+                        //一覧表示
+                        allDisp();
                         break;
 
                     case "2":
-                        //都道府県の入力
-                        Console.WriteLine("都道府県:");
-                        String searchPref = Console.ReadLine();
-                        Console.WriteLine(searchPref + "の県庁所在地は" + PrefOfficeDict[searchPref] + "です。");
-
+                        //検索処理
+                        searchPrefCaptalLocation();
                         break;
 
                     case "9":
-                        endFlag = true;
+                        endFlag = true; //終了フラグ
                         break;
-
-
                 }
             }
         }
+
+        //検索処理
+        private static void searchPrefCaptalLocation() {
+            Console.Write("都道府県:");
+            String searchPref = Console.ReadLine();
+            Console.WriteLine(searchPref + "の県庁所在地は" + prefOfficeDict[searchPref] + "です");
+        }
+
+        //一覧表示
+        private static void allDisp() {
+            foreach (var item in prefOfficeDict) {
+                Console.WriteLine("{0}の県庁所在地は{1}です。", item.Key, item.Value);
+            }
+        }
+
+        //メニュー表示
+        private static string menuDisp() {
+            Console.WriteLine("// メニュー //");
+            Console.WriteLine("1：一覧表示");
+            Console.WriteLine("2：検索");
+            Console.WriteLine("9：終了");
+            Console.Write(">");
+            String menuSelect = Console.ReadLine();
+            return menuSelect;
+        }
     }
 }
-
-
-
-
-
-
-
 
 
 
