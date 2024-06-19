@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Test01 {
@@ -17,29 +18,29 @@ namespace Test01 {
             string[] lines = File.ReadAllLines(filePath);
             foreach (string line in lines) {
                 string[] items = line.Split(',');
-                Student Score = new Student {
+                Student students = new Student {
                     Name = items[0],
                     Subject = items[1],
                     Score = int.Parse(items[2])
                 };
-                score.Add(Score);
+                score.Add(students);
             }
             return score;
         }
 
-
-
-
+        internal IEnumerable<object> GetPerStudentScore() {
+            throw new NotImplementedException();
+        }
     }
 
     //メソッドの概要：科目別の点数を求める
     public IDictionary<string, int> GetPerStudentScore() {
         var dict = new Dictionary<string, int>();
-        foreach (var score in _score) {
-            if (dict.ContainsKey(score.Name)) {
-                dict[score.Name] += score.Score;
+        foreach (Student students in _score) {
+            if (dict.ContainsKey(students.Name)) {
+                dict[students.Name] += students.Score;
             } else {
-                dict[score.Name] = score.Score;
+                dict[students.Name] = students.Score;
             }
         }
         return dict;
