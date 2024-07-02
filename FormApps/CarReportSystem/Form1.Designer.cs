@@ -50,6 +50,7 @@
             btReportOpen = new Button();
             btReportSave = new Button();
             dgvCarReport = new DataGridView();
+            ofdPicFileOpen = new OpenFileDialog();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbPicture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvCarReport).BeginInit();
@@ -72,7 +73,6 @@
             label1.Size = new Size(50, 25);
             label1.TabIndex = 1;
             label1.Text = "日付";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -135,7 +135,6 @@
             rbOther.Name = "rbOther";
             rbOther.Size = new Size(56, 19);
             rbOther.TabIndex = 5;
-            rbOther.TabStop = true;
             rbOther.Text = "その他";
             rbOther.UseVisualStyleBackColor = true;
             // 
@@ -146,7 +145,6 @@
             rbInport.Name = "rbInport";
             rbInport.Size = new Size(61, 19);
             rbInport.TabIndex = 4;
-            rbInport.TabStop = true;
             rbInport.Text = "輸入車";
             rbInport.UseVisualStyleBackColor = true;
             // 
@@ -157,7 +155,6 @@
             rbSubaru.Name = "rbSubaru";
             rbSubaru.Size = new Size(54, 19);
             rbSubaru.TabIndex = 3;
-            rbSubaru.TabStop = true;
             rbSubaru.Text = "スバル";
             rbSubaru.UseVisualStyleBackColor = true;
             // 
@@ -168,10 +165,8 @@
             rbHonda.Name = "rbHonda";
             rbHonda.Size = new Size(53, 19);
             rbHonda.TabIndex = 2;
-            rbHonda.TabStop = true;
             rbHonda.Text = "ホンダ";
             rbHonda.UseVisualStyleBackColor = true;
-            rbHonda.CheckedChanged += radioButton3_CheckedChanged;
             // 
             // rbNissan
             // 
@@ -180,7 +175,6 @@
             rbNissan.Name = "rbNissan";
             rbNissan.Size = new Size(49, 19);
             rbNissan.TabIndex = 1;
-            rbNissan.TabStop = true;
             rbNissan.Text = "日産";
             rbNissan.UseVisualStyleBackColor = true;
             // 
@@ -191,7 +185,6 @@
             rbToyota.Name = "rbToyota";
             rbToyota.Size = new Size(50, 19);
             rbToyota.TabIndex = 0;
-            rbToyota.TabStop = true;
             rbToyota.Text = "トヨタ";
             rbToyota.UseVisualStyleBackColor = true;
             // 
@@ -221,6 +214,7 @@
             btPicOpen.TabIndex = 9;
             btPicOpen.Text = "開く...";
             btPicOpen.UseVisualStyleBackColor = true;
+            btPicOpen.Click += btPicOpen_Click;
             // 
             // btPicDelete
             // 
@@ -230,6 +224,7 @@
             btPicDelete.TabIndex = 10;
             btPicDelete.Text = "削除";
             btPicDelete.UseVisualStyleBackColor = true;
+            btPicDelete.Click += btPicDelete_Click;
             // 
             // pbPicture
             // 
@@ -278,6 +273,7 @@
             btModifyReport.TabIndex = 15;
             btModifyReport.Text = "修正";
             btModifyReport.UseVisualStyleBackColor = true;
+            btModifyReport.Click += btModifyReport_Click;
             // 
             // btDeleteReport
             // 
@@ -288,6 +284,7 @@
             btDeleteReport.TabIndex = 16;
             btDeleteReport.Text = "削除";
             btDeleteReport.UseVisualStyleBackColor = true;
+            btDeleteReport.Click += btDeleteReport_Click;
             // 
             // label7
             // 
@@ -298,7 +295,6 @@
             label7.Size = new Size(50, 25);
             label7.TabIndex = 17;
             label7.Text = "一覧";
-            label7.Click += label7_Click;
             // 
             // btReportOpen
             // 
@@ -314,9 +310,9 @@
             // btReportSave
             // 
             btReportSave.Font = new Font("Yu Gothic UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            btReportSave.Location = new Point(28, 517);
+            btReportSave.Location = new Point(28, 520);
             btReportSave.Name = "btReportSave";
-            btReportSave.Size = new Size(69, 38);
+            btReportSave.Size = new Size(69, 35);
             btReportSave.TabIndex = 19;
             btReportSave.Text = "保存...";
             btReportSave.UseVisualStyleBackColor = true;
@@ -325,9 +321,17 @@
             // 
             dgvCarReport.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCarReport.Location = new Point(119, 387);
+            dgvCarReport.MultiSelect = false;
             dgvCarReport.Name = "dgvCarReport";
+            dgvCarReport.ReadOnly = true;
+            dgvCarReport.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCarReport.Size = new Size(728, 168);
             dgvCarReport.TabIndex = 20;
+            dgvCarReport.Click += dgvCarReport_Click;
+            // 
+            // ofdPicFileOpen
+            // 
+            ofdPicFileOpen.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -357,6 +361,7 @@
             Controls.Add(dtpDate);
             Name = "Form1";
             Text = "試乗レポート管理システム";
+            Load += Form1_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbPicture).EndInit();
@@ -394,5 +399,6 @@
         private Button btReportOpen;
         private Button btReportSave;
         private DataGridView dgvCarReport;
+        private OpenFileDialog ofdPicFileOpen;
     }
 }

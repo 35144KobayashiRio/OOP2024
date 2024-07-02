@@ -34,15 +34,16 @@ namespace Test01 {
     }
 
     //メソッドの概要：科目別の点数を求める
-    public IDictionary<string, int> GetPerStudentScore() {
-        var dict = new Dictionary<string, int>();
-        foreach (Student students in _score) {
-            if (dict.ContainsKey(students.Name)) {
-                dict[students.Name] += students.Score;
-            } else {
-                dict[students.Name] = students.Score;
-            }
-        }
-        return dict;
-    }
+    //public IDictionary<string, int> GetPerStudentScore() {
+    //   var dict = new Dictionary<string, int>();
+    //    string students = File.ReadAllLines(filePath);
+    //   foreach (var sale in _sales) {
+    //       if (dict.ContainsKey(sale.ShopName)) {
+    //           dict[sale.ShopName] += sale.Amount;
+    //       } else {
+    //           dict[sale.ShopName] = sale.Amount;
+    //       }
+    //   }
+    //    return dict;
+    //  }
 }
