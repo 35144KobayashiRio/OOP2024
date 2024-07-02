@@ -90,7 +90,7 @@ namespace Test02 {
         private static void Exercise03(List<int> numbers) {
             var sort = numbers.Where(x => x % 2 == 1).OrderByDescending(x => x);
             foreach (var num in sort)
-                Console.WriteLine(num);
+                Console.Write(" "+num);
 
 
         }
@@ -99,7 +99,7 @@ namespace Test02 {
         //　　　　出力結果【12 14 20 40 35 31 17 48】
         private static void Exercise04(List<int> numbers) {
             var exixts = numbers.Where(n => n >= 10 && n <= 50);
-            foreach (var num in exixts) Console.WriteLine(num);
+            foreach (var num in exixts) Console.Write(" "+num);
 
 
 
@@ -142,7 +142,10 @@ namespace Test02 {
         //　　　　出力結果【山田隆司
         //　　　　　　　　　片山伸介】
         private static void Exercise08(List<Person> persons) {
-
+            var Name_yama = persons.Where(s => s.Name.Contains("山"));
+            foreach (var person in Name_yama) {
+                Console.WriteLine(person.Name);
+            }
 
 
         }
