@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace CarReportSystem {
     internal class CarReport {
         public enum MakerGroup {
+            なし,
             トヨタ,
             日産,
             ホンダ,
@@ -30,7 +31,7 @@ namespace CarReportSystem {
         [System.ComponentModel.DisplayName("レポート")]
         public string Report { get; set; } = string.Empty;    //レポート
 
-        [System.ComponentModel.Browsable(false)]
+        //[System.ComponentModel.Browsable(false)]
         public Image? Picture { get; set; }                   //画像
     }
 }
