@@ -329,7 +329,6 @@ namespace CarReportSystem {
         private void Fİ’èToolStripMenuItem_Click(object sender, EventArgs e) {
             if (cdColor.ShowDialog() == DialogResult.OK) {
                 BackColor = cdColor.Color;    //”wŒiFİ’è
-
                 settings.MainFormColor = cdColor.Color.ToArgb();   //”wŒiF•Û‘¶
 
             }
@@ -348,6 +347,12 @@ namespace CarReportSystem {
 
 
             }
+        }
+
+        private void ‚±‚ÌƒAƒvƒŠ‚É‚Â‚¢‚ÄToolStripMenuItem_Click(object sender, EventArgs e) {
+            var fmversion = new fmVersion();
+            fmversion.ShowDialog();
+           
         }
     }
 }
