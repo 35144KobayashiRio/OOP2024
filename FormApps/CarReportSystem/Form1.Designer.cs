@@ -64,6 +64,7 @@
             色設定ToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator2 = new ToolStripSeparator();
             終了ToolStripMenuItem = new ToolStripMenuItem();
+            cdColor = new ColorDialog();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbPicture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvCarReport).BeginInit();
@@ -275,7 +276,7 @@
             // 
             // btAddReport
             // 
-            btAddReport.BackColor = Color.MistyRose;
+            btAddReport.BackColor = Color.LightCoral;
             btAddReport.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 128);
             btAddReport.Location = new Point(558, 351);
             btAddReport.Name = "btAddReport";
@@ -287,7 +288,7 @@
             // 
             // btModifyReport
             // 
-            btModifyReport.BackColor = Color.Cornsilk;
+            btModifyReport.BackColor = Color.Khaki;
             btModifyReport.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 128);
             btModifyReport.Location = new Point(666, 351);
             btModifyReport.Name = "btModifyReport";
@@ -299,7 +300,7 @@
             // 
             // btDeleteReport
             // 
-            btDeleteReport.BackColor = Color.LightCyan;
+            btDeleteReport.BackColor = Color.LightSkyBlue;
             btDeleteReport.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 128);
             btDeleteReport.Location = new Point(771, 351);
             btDeleteReport.Name = "btDeleteReport";
@@ -384,7 +385,7 @@
             // 
             // btInputItemClear
             // 
-            btInputItemClear.BackColor = Color.MintCream;
+            btInputItemClear.BackColor = Color.LightSeaGreen;
             btInputItemClear.Location = new Point(473, 37);
             btInputItemClear.Name = "btInputItemClear";
             btInputItemClear.Size = new Size(65, 39);
@@ -433,6 +434,7 @@
             色設定ToolStripMenuItem.Name = "色設定ToolStripMenuItem";
             色設定ToolStripMenuItem.Size = new Size(110, 22);
             色設定ToolStripMenuItem.Text = "色設定";
+            色設定ToolStripMenuItem.Click += 色設定ToolStripMenuItem_Click;
             // 
             // toolStripSeparator2
             // 
@@ -479,7 +481,9 @@
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
             Name = "Form1";
+            ShowInTaskbar = false;
             Text = "試乗レポート管理システム";
+            FormClosed += Form1_FormClosed;
             Load += Form1_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -536,5 +540,6 @@
         private ToolStripMenuItem 色設定ToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem 終了ToolStripMenuItem;
+        private ColorDialog cdColor;
     }
 }
