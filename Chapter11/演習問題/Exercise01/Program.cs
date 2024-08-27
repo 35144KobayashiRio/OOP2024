@@ -22,9 +22,6 @@ namespace Exercise01 {
 
         }
 
-
-
-
         private static void Exercise1_1(string file) {
             var xdoc = XDocument.Load(file);
             var sports = xdoc.Root.Elements().Select(x => new {
@@ -56,23 +53,46 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_4(string file, string newfile) {
-            var element = new XElement("ballsport",
-                new XElement("name", "サッカー", new XAttribute("kanji", "蹴球")),
-                new XElement("teammembers", "11"),
-                new XElement("firstplayed", "1863"));
+            List<XElement> xElements = new List<XElement>();
 
-            var xdoc = XDocument.Load("Sample.xml");
-            xdoc.Root.Add(element);
+            var xdoc = XDocument.Load(file);
+            string name, kanji, teammembers, firstplayed;
+            int nextFlag;
+            while (true) {
+                //入力
+                Console.Write("名称:");
+                name = Console.ReadLine();
 
-            //確認用コード 
-            foreach (var newsports in xdoc.Root.Elements()) {
-                var xname = newsports.Element("name");
-                var xteammembers = newsports.Element("teammembers");
+                Console.Write("漢字:");
+                kanji = Console.ReadLine();
 
-                Console.WriteLine("{0} {1}", xname.Value, xteammembers.Value);
+                Console.Write("人数:");
+                teammembers = Console.ReadLine();
+
+                Console.Write("起源:");
+                firstplayed = Console.ReadLine();
+
+                var element = new XElement("ballsport",
+                    new XElement("name", name, new XAttribute("kanji", kanji)),
+                    new XElement("teammembers", teammembers),
+                    new XElement("firstplayed", firstplayed));
+
+
+                xElements.Add(element);　//リストへ要素を追加
+
+
+                Console.WriteLine();  //改行
+                Console.WriteLine("追加【1】保存【2】");
+                Console.WriteLine(">");
+
+                nextFlag = int.Parse(Console.ReadLine());
+                if (nextFlag == 2) {
+                    break;
+                    Console.WriteLine(); //改行
+                }
+                xdoc.Root.Add(element);
+                xdoc.Save("newsports.xml");
             }
-
-            xdoc.Save("newsports.xml");
         }
     }
 }
