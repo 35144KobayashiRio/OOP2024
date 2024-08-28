@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
 using System.Text;
+using System.Text.Encodings.Web;
+using System.Text.Json;
+using System.Text.Unicode;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
@@ -21,10 +25,10 @@ namespace Exercise01 {
             Exercise1_3("employees.xml");
             Console.WriteLine();
 
-            //Exercise1_4("employees.json");
+            Exercise1_4("employees.json");
 
             // これは確認用
-            //Console.WriteLine(File.ReadAllText("employees.json"));
+            Console.WriteLine(File.ReadAllText("employees.json"));
         }
 
         private static void Exercise1_1(string outfile) {
@@ -71,7 +75,27 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_4(string file) {
+            var emps = new Employee[] {
+                new Employee {
+                Id = 173,
+                Name = "高橋　直人",
+                HireDate = new DateTime(2001, 4, 8),
+            },
+            new Employee {
+                Id = 459,
+                Name = "石川　有紗",
+                HireDate = new DateTime(2003, 12, 7),
+            },
+        };
 
+            using (var stream = new FileStream(file, FileMode.Create, FileAccess.Write)) {
+                var options = new JsonSerializerOptions {
+                    Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
+                    WriteIndented = true,
+                };
+
+                JsonSerializer.Serialize(stream, emps, options);
+            }
         }
     }
 }
