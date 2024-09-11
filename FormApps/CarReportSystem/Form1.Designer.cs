@@ -265,7 +265,7 @@
             cbAuthor.Location = new Point(131, 81);
             cbAuthor.Name = "cbAuthor";
             cbAuthor.Size = new Size(291, 33);
-            cbAuthor.TabIndex = 12;
+            cbAuthor.TabIndex = 12;            
             // 
             // cbCarName
             // 
@@ -460,7 +460,7 @@
             // このアプリについてToolStripMenuItem
             // 
             このアプリについてToolStripMenuItem.Name = "このアプリについてToolStripMenuItem";
-            このアプリについてToolStripMenuItem.Size = new Size(180, 22);
+            このアプリについてToolStripMenuItem.Size = new Size(164, 22);
             このアプリについてToolStripMenuItem.Text = "このアプリについて...";
             このアプリについてToolStripMenuItem.Click += このアプリについてToolStripMenuItem_Click;
             // 

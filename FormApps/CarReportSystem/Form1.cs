@@ -352,7 +352,9 @@ namespace CarReportSystem {
         private void ‚±‚ÌƒAƒvƒŠ‚É‚Â‚¢‚ÄToolStripMenuItem_Click(object sender, EventArgs e) {
             var fmversion = new fmVersion();
             fmversion.ShowDialog();
-           
+
         }
+
+        
     }
 }
