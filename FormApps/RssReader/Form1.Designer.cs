@@ -63,7 +63,9 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownHeight = 150;
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.IntegralHeight = false;
             this.comboBox1.Location = new System.Drawing.Point(30, 12);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(716, 20);

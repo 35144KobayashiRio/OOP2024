@@ -48,7 +48,7 @@ namespace RssReader {
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
-            
+            comboBox1.Items.Add(lbRssTitle.SelectedIndex);
             
 
             
