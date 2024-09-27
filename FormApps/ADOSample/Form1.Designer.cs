@@ -42,16 +42,13 @@
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.booksBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.booksDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.authorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.authorsTableAdapter = new ADOSample.infosys202429DataSetTableAdapters.AuthorsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.infosys202429DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingNavigator)).BeginInit();
             this.booksBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.booksDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.authorsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // infosys202429DataSet
@@ -70,7 +67,7 @@
             // 
             // tableAdapterManager
             // 
-            this.tableAdapterManager.AuthorsTableAdapter = null;
+            this.tableAdapterManager.AuthorsTableAdapter = this.authorsTableAdapter;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.BooksTableAdapter = this.booksTableAdapter;
             this.tableAdapterManager.UpdateOrder = ADOSample.infosys202429DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
@@ -199,53 +196,20 @@
             this.booksBindingNavigatorSaveItem.Text = "データの保存";
             this.booksBindingNavigatorSaveItem.Click += new System.EventHandler(this.booksBindingNavigatorSaveItem_Click);
             // 
-            // booksDataGridView
+            // authorsBindingSource
             // 
-            this.booksDataGridView.AutoGenerateColumns = false;
-            this.booksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.booksDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.booksDataGridView.DataSource = this.booksBindingSource;
-            this.booksDataGridView.Location = new System.Drawing.Point(49, 30);
-            this.booksDataGridView.Name = "booksDataGridView";
-            this.booksDataGridView.RowTemplate.Height = 21;
-            this.booksDataGridView.Size = new System.Drawing.Size(694, 223);
-            this.booksDataGridView.TabIndex = 1;
+            this.authorsBindingSource.DataMember = "Authors";
+            this.authorsBindingSource.DataSource = this.infosys202429DataSet;
             // 
-            // dataGridViewTextBoxColumn1
+            // authorsTableAdapter
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Title";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Title";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "PublishedYear";
-            this.dataGridViewTextBoxColumn3.HeaderText = "PublishedYear";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Author_Id";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Author_Id";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.authorsTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.booksDataGridView);
             this.Controls.Add(this.booksBindingNavigator);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -255,7 +219,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingNavigator)).EndInit();
             this.booksBindingNavigator.ResumeLayout(false);
             this.booksBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.booksDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.authorsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,11 +244,8 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton booksBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView booksDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private infosys202429DataSetTableAdapters.AuthorsTableAdapter authorsTableAdapter;
+        private System.Windows.Forms.BindingSource authorsBindingSource;
     }
 }
 

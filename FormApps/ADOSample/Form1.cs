@@ -22,6 +22,8 @@ namespace ADOSample {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
+            // TODO: このコード行はデータを 'infosys202429DataSet.Authors' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
+            this.authorsTableAdapter.Fill(this.infosys202429DataSet.Authors);
             // TODO: このコード行はデータを 'infosys202429DataSet.Books' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
             this.booksTableAdapter.Fill(this.infosys202429DataSet.Books);
 

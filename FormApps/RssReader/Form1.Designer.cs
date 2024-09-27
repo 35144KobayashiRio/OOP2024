@@ -26,7 +26,9 @@
             this.btGet = new System.Windows.Forms.Button();
             this.lbRssTitle = new System.Windows.Forms.ListBox();
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbRSS = new System.Windows.Forms.ComboBox();
+            this.tb1RSS = new System.Windows.Forms.TextBox();
+            this.btinput = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,9 +46,9 @@
             // 
             this.lbRssTitle.FormattingEnabled = true;
             this.lbRssTitle.ItemHeight = 12;
-            this.lbRssTitle.Location = new System.Drawing.Point(30, 79);
+            this.lbRssTitle.Location = new System.Drawing.Point(30, 111);
             this.lbRssTitle.Name = "lbRssTitle";
-            this.lbRssTitle.Size = new System.Drawing.Size(852, 136);
+            this.lbRssTitle.Size = new System.Drawing.Size(852, 88);
             this.lbRssTitle.TabIndex = 2;
             this.lbRssTitle.SelectedIndexChanged += new System.EventHandler(this.lbRssTitle_SelectedIndexChanged);
             // 
@@ -55,29 +57,49 @@
             this.webView21.AllowExternalDrop = true;
             this.webView21.CreationProperties = null;
             this.webView21.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.webView21.Location = new System.Drawing.Point(30, 235);
+            this.webView21.Location = new System.Drawing.Point(30, 216);
             this.webView21.Name = "webView21";
             this.webView21.Size = new System.Drawing.Size(852, 361);
             this.webView21.TabIndex = 4;
             this.webView21.ZoomFactor = 1D;
             // 
-            // comboBox1
+            // cbRSS
             // 
-            this.comboBox1.DropDownHeight = 150;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.IntegralHeight = false;
-            this.comboBox1.Location = new System.Drawing.Point(30, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(716, 20);
-            this.comboBox1.TabIndex = 5;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbRSS.DropDownHeight = 150;
+            this.cbRSS.FormattingEnabled = true;
+            this.cbRSS.IntegralHeight = false;
+            this.cbRSS.Location = new System.Drawing.Point(30, 12);
+            this.cbRSS.Name = "cbRSS";
+            this.cbRSS.Size = new System.Drawing.Size(716, 20);
+            this.cbRSS.TabIndex = 5;
+            this.cbRSS.SelectedIndexChanged += new System.EventHandler(this.cbRSS_SelectedIndexChanged);
+            // 
+            // tb1RSS
+            // 
+            this.tb1RSS.Location = new System.Drawing.Point(30, 62);
+            this.tb1RSS.Name = "tb1RSS";
+            this.tb1RSS.Size = new System.Drawing.Size(273, 19);
+            this.tb1RSS.TabIndex = 6;
+            this.tb1RSS.TextChanged += new System.EventHandler(this.tb1RSS_TextChanged);
+            // 
+            // btinput
+            // 
+            this.btinput.Location = new System.Drawing.Point(331, 58);
+            this.btinput.Name = "btinput";
+            this.btinput.Size = new System.Drawing.Size(110, 27);
+            this.btinput.TabIndex = 7;
+            this.btinput.Text = "登録";
+            this.btinput.UseVisualStyleBackColor = true;
+            this.btinput.Click += new System.EventHandler(this.btinput_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 618);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.btinput);
+            this.Controls.Add(this.tb1RSS);
+            this.Controls.Add(this.cbRSS);
             this.Controls.Add(this.webView21);
             this.Controls.Add(this.lbRssTitle);
             this.Controls.Add(this.btGet);
@@ -85,6 +107,7 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -92,7 +115,9 @@
         private System.Windows.Forms.Button btGet;
         private System.Windows.Forms.ListBox lbRssTitle;
         private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbRSS;
+        private System.Windows.Forms.TextBox tb1RSS;
+        private System.Windows.Forms.Button btinput;
     }
 }
 
