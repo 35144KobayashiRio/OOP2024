@@ -95,34 +95,7 @@ namespace RssReader {
             }
     
 
-        //private void UrlRss(string v) {
-        //    lbRssTitle.Items.Clear();
-
-        //    if (data.TryGetValue(v, out var Urls)) {
-        //        using (var x = new WebClient()) {
-        //            try {
-        //                var url = x.OpenRead(Urls);
-        //                var xc = XDocument.Load(Urls);
-
-        //                items = xc.Root.Descendants("item")
-        //                    .Select(items => new ItemData {
-        //                        Title = items.Element("title")?.Value ?? "No Title",
-        //                        Link = items.Element("link")?.Value ?? "#"
-        //                    }).ToList();
-
-        //                foreach (var item in items) {
-        //                    lbRssTitle.Items.Add(item.Title);
-        //                }
-        //            }
-        //            catch (Exception ex) {
-        //                MessageBox.Show("エラー:" + ex.Message);
-        //            }
-        //        }
-        //    }else {
-        //        MessageBox.Show("選択されたURLは見つかりませんでした。");
-              
-        //    }
-        //}
+        
 
         
 
